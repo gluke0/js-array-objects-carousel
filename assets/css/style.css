@@ -35,10 +35,11 @@ img{
 
 .thumbs{
     position: relative;
+    bottom: 2rem;
 }
 
 .up{
-    top: 0.5rem;
+    top: 4.5rem;
 }
 
 .down{
@@ -68,4 +69,11 @@ img{
 
 .thumbs .selected{
     filter: brightness(400%);
+}
+
+.title{
+    position: relative;
+    bottom: 5rem;
+    padding-left: 1rem;
+    color: white;
 }
