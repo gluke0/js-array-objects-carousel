@@ -42,8 +42,8 @@ const images = [
     }
 ];
 
-let img = "";
-let thumb= "";
+let imgD = "";
+let thumbD = "";
 let displayed = 0;
 let contImg = document.querySelector(".main-img");
 let contThu = document.querySelector(".thumbs");
@@ -54,7 +54,7 @@ for (let i = 0; i < images.length; i++) {
   if (i == displayed) {
     active = "active";
   }
-  img += `
+  imgD += `
   <div class="item ${active}">
   <img src="./assets/${images[i].image}" alt="">
       <div class="title">
@@ -62,11 +62,52 @@ for (let i = 0; i < images.length; i++) {
         <span> ${images[i].text} </span>
       </div>
   </div>`;
-  thumb += `
+  thumbD += `
   <div class="thumb ${active}">
     <img src="./assets/${images[i].image}" alt="" />
   </div>`
 };
 
-contImg.innerHTML = img;
-contThu.innerHTML += thumb;
+contImg.innerHTML = imgD;
+contThu.innerHTML += thumbD;
+
+let item = document.querySelector('.item');
+item.classList.add('active');
+
+let thumb = document.querySelector('.thumb');
+thumb.classList.add('selected');
+
+let arrowUp = document.querySelector('.up');
+let arrowDown = document.querySelector('.down');
+let items = document.querySelectorAll('.item');
+let thumbs = document.querySelectorAll('.thumb');
+
+arrowDown.addEventListener('click',
+function() {
+    items[displayed].classList.remove('active');
+    thumbs[displayed].classList.remove('selected');
+
+    if (displayed == images.length - 1) {
+        displayed = 0;
+    } else {
+        displayed++;
+    }
+
+    items[displayed].classList.add('active');
+    thumbs[displayed].classList.add('selected');
+})
+
+arrowUp.addEventListener('click',
+function() {
+    items[displayed].classList.remove('active');
+    thumbs[displayed].classList.remove('selected');
+    
+    if (displayed == 0) {
+        displayed = images.length - 1;
+    } else {
+        displayed--;
+    }
+    
+    items[displayed].classList.add('active');
+    thumbs[displayed].classList.add('selected');
+})

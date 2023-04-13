@@ -65,6 +65,8 @@ img{
 
 .thumbs img{
     filter: brightness(0.3);
+    position: relative;
+    bottom: 4r;
 }
 
 .thumbs .selected{
